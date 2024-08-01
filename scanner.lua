@@ -22,7 +22,7 @@ local function scan()
         -- EMPTY CROP STICK
         if rawResult["crop:name"] == nil then
             return {
-                isWorkable = false,
+                isWorkable = true,
                 isCrop = false,
                 name = "emptyCrop",
                 gr = 0,
