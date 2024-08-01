@@ -179,8 +179,8 @@ function placeCropStick(count)
     for _ = 1, count do
         robot.useDown()
     end
-    robot.select(selectedSlot)
     inventory_controller.equip()
+    robot.select(selectedSlot)
 end
 
 function deweed()
@@ -205,8 +205,8 @@ function deweed()
         database.updateFarm(slot, crop)
     end
 
-    robot.select(selectedSlot)
     inventory_controller.equip()
+    robot.select(selectedSlot)
 end
 
 function pulseDown()
