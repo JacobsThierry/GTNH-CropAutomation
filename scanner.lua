@@ -10,11 +10,25 @@ local function scan()
 
     -- AIR
     if rawResult.name == "minecraft:air" or rawResult.name == "GalacticraftCore:tile.brightAir" then
-        return {isWorkable = true, isCrop = false, name = "air"}
+        return {
+            isWorkable = true,
+            isCrop = false,
+            name = "air",
+            gr = 0,
+            ga = 0,
+            re = 0
+        }
     elseif rawResult.name == "IC2:blockCrop" then
         -- EMPTY CROP STICK
         if rawResult["crop:name"] == nil then
-            return {isWorkable = false, isCrop = false, name = "emptyCrop"}
+            return {
+                isWorkable = false,
+                isCrop = false,
+                name = "emptyCrop",
+                gr = 0,
+                ga = 0,
+                re = 0
+            }
         else
             return {
                 isWorkable = true,
