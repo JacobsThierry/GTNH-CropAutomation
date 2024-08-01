@@ -205,6 +205,7 @@ local function init()
 end
 
 local function main()
+   print("woo")
    parseArguments()
    checkTools()
 
