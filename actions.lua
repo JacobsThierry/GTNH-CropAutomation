@@ -32,7 +32,7 @@ function needCharge()
 end
 
 function fullyCharged()
-    return computer.energy() / computer.maxEnergy() > 0.95
+    return computer.energy() / computer.maxEnergy() > 0.98
 end
 
 function fullInventory()
@@ -156,7 +156,7 @@ function applyWeedex()
         restockWeedex()
     end
 
-    if robot.count(robot.inventorySize() + config.weedexSlot) == 0 then
+    if robot.count(robot.inventorySize() + config.weedexSlot) > 0 then
         robot.select(robot.inventorySize() + config.weedexSlot)
         inventory_controller.equip()
         robot.useDown()
