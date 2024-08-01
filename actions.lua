@@ -293,7 +293,7 @@ function scanFarm()
             crop = scanner.scan()
         end
         database.updateFarm(slot, crop)
-        print("slot : " .. crop.name)
+        print("slot : " .. slot .. " " .. crop.isWorkable)
     end
 end
 
