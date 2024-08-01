@@ -170,6 +170,7 @@ local function checkChild(slot, crop)
          actions.applyWeedex()
       end
    else
+      print("kaboo")
       local cropScore = getCropScore(crop)
       if cropScore > lowestParentScore then
          actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScore))
