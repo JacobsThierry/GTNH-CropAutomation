@@ -63,6 +63,7 @@ local function getCropScore(crop)
       attributesMultiplier = 1
    else
       local targetedAttributes = CROPDATA[targetCrop]["attributes"]
+      print(targetedAttributes)
       local cropAttributes = CROPDATA[crop.name]["attributes"]
       local commonAttributesCount = 0
 
@@ -225,6 +226,8 @@ local function main()
          return
       end
    end
+
+   print("Target crop : " .. targetCrop)
 
    while not isFinished() do
       tickOnce()
