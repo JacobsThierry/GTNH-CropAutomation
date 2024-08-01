@@ -284,7 +284,7 @@ function cleanUp()
 end
 
 function scanFarm()
-    for slot = 1, config.workingFarmArea, 2 do
+    for slot = 1, config.workingFarmArea do
         gps.go(gps.workingSlotToPos(slot))
         local crop = scanner.scan()
 
@@ -293,7 +293,6 @@ function scanFarm()
             crop = scanner.scan()
         end
         database.updateFarm(slot, crop)
-        print("slot : " .. slot .. " " .. crop.isWorkable)
     end
 end
 

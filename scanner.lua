@@ -15,8 +15,7 @@ local function scan()
         -- RANDOM BLOCK
         -- EMPTY CROP STICK
         if rawResult["crop:name"] == nil then
-            -- FILLED CROP STICK
-            return {isWorkable = true, isCrop = false, name = "emptyCrop"}
+            return {isWorkable = false, isCrop = false, name = "emptyCrop"}
         else
             return {
                 isWorkable = true,

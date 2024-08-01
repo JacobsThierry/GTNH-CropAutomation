@@ -25,8 +25,6 @@ local function parseArguments()
 end
 
 local function checkTools()
-   print("doo")
-
    local spadeItem = inventory_controller.getStackInInternalSlot(robot.inventorySize() + config.spadeSlot)
 
    if spadeItem == nil or spadeItem.name ~= "berriespp:itemSpade" then
@@ -203,7 +201,6 @@ local function tickOnce()
 end
 
 local function main()
-   print("woo")
    parseArguments()
    checkTools()
 
