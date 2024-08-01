@@ -47,7 +47,7 @@ local function getCropScore(crop)
    local tierWeight = 0.7
 
    if crop.name == "air" or crop.name == "emptyCrop" or scanner.isWeed(crop) then
-      return 0
+      return -10
    end
 
    local cropStats = crop.gr + crop.ga - crop.re
@@ -171,6 +171,7 @@ local function checkChild(slot, crop)
             actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScoreSlot))
             actions.placeCropStick(2)
             actions.applyWeedex()
+            database.updateFarm(slot, scanner.scan())
             database.updateFarm(lowestParentScore, crop)
             updateDbInfos()
          else
