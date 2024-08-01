@@ -79,6 +79,8 @@ local function restockWeedex()
     local empty = true
     gps.save()
     gps.go(config.weedexContainerPos)
+
+    robot.select(robot.inventorySize() + config.weedexSlot)
     for i = 1, inventory_controller.getInventorySize(sides.down) do
         if inventory_controller.getSlotStackSize(sides.down, i) > 0 then
             inventory_controller.suckFromSlot(sides.down, i, 1)
@@ -150,11 +152,11 @@ end
 
 function applyWeedex()
     local selectedSlot = robot.select()
-    if robot.count(robot.inventorysize() + config.weedexSlot) == 0 then
+    if robot.count(robot.inventorySize() + config.weedexSlot) == 0 then
         restockWeedex()
     end
 
-    if robot.count(robot.inventorysize() + config.weedexSlot) == 0 then
+    if robot.count(robot.inventorySize() + config.weedexSlot) == 0 then
         robot.select(robot.inventorySize() + config.weedexSlot)
         inventory_controller.equip()
         robot.useDown()
