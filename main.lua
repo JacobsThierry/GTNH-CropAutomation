@@ -114,7 +114,7 @@ local function updateDbInfos()
    -- Find lowest stat slot
    for slot = 1, config.workingFarmArea do
       local crop = farm[slot]
-      if crop.isWorkable and crop.isCrop then
+      if crop.isWorkable then
          if crop.name ~= targetCrop then
             isEveryPlantTarget = false
          end
@@ -137,9 +137,6 @@ local function updateDbInfos()
                lowestParentScoreSlot = slot
             end
          end
-      else
-         isEveryPlantTarget = false
-         isEveryPlantGoodEnough = false
       end
    end
 end
@@ -170,6 +167,7 @@ local function checkChild(slot, crop)
          actions.applyWeedex()
       else
          local cropScore = getCropScore(crop)
+
          if cropScore > lowestParentScore then
             actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScore))
             actions.placeCropStick(2)
@@ -219,8 +217,8 @@ local function main()
    parseArguments()
    checkTools()
 
-   actions.restockAll()
    actions.scanFarm()
+   actions.restockAll()
 
    if config.targetCrop == nil then
       targetCrop = database.getFarm()[1].name

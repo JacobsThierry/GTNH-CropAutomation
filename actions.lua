@@ -84,12 +84,12 @@ local function restockWeedex()
         gps.go(config.weedexContainerPos)
 
         for i = 1, inventory_controller.getInventorySize(sides.down) do
+            if robot.count() == 1 then
+                break
+            end
             if inventory_controller.getSlotStackSize(sides.down, i) > 0 then
                 inventory_controller.suckFromSlot(sides.down, i, 1)
                 empty = false
-                if robot.count() == 1 then
-                    break
-                end
             end
         end
         weedExEmpty = empty
