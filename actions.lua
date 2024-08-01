@@ -194,13 +194,12 @@ function deweed()
     end
 
     -- if we're in an even spot, re-apply weedex
-    local pos = gps.getPos()
-    if pos % 2 == 0 then
+    local slot = gps.getWorkingSlot()
+    if slot % 2 == 0 then
         applyWeedex()
     else --otherwise, remove the cropstick and update the database
         robot.swingDown()
         local crop = scanner.scan()
-        local slot = gps.getWorkingSlot()
         database.updateFarm(slot, crop)
     end
 
@@ -288,6 +287,7 @@ function scanFarm()
     for slot = 1, config.workingFarmArea, 2 do
         gps.go(gps.workingSlotToPos(slot))
         local crop = scanner.scan()
+
         if scanner.isWeed(crop) then
             deweed()
             crop = scanner.scan()
