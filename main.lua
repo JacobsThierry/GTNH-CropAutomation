@@ -150,6 +150,7 @@ local function isFinished()
 end
 
 local function checkChild(slot, crop)
+   print("kaboo")
    local farm = database.getFarm()
    if crop.isWorkable and crop.name ~= "emptyCrop" then
       if crop.name == "air" then
@@ -170,7 +171,6 @@ local function checkChild(slot, crop)
          actions.applyWeedex()
       end
    else
-      print("kaboo")
       local cropScore = getCropScore(crop)
       if cropScore > lowestParentScore then
          actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScore))
