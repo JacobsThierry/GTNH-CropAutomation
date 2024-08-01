@@ -293,6 +293,7 @@ function scanFarm()
             crop = scanner.scan()
         end
         database.updateFarm(slot, crop)
+        print(crop)
     end
 end
 
