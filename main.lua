@@ -26,14 +26,15 @@ end
 
 local function checkTools()
    print("doo")
-   local spadeItem = inventory_controller.getStackInInternalSlot(config.spadeSlot)
+
+   local spadeItem = inventory_controller.getStackInInternalSlot(robot.inventorySize() + config.spadeSlot)
 
    if spadeItem == nil or spadeItem.name ~= "berriespp:itemSpade" then
       print("No spade in the spade slot!")
       os.exit(0)
    end
 
-   local binderItem = inventory_controller.getStackInInternalSlot(config.binderSlot)
+   local binderItem = inventory_controller.getStackInInternalSlot(robot.inventorySize() + config.binderSlot)
 
    if binderItem == nil or binderItem.name ~= "ThaumicTinkerer:connector" then
       print("No binder in the binder slot!")
@@ -208,7 +209,6 @@ local function init()
 end
 
 local function main()
-   os.exit(0)
    print("woo")
    parseArguments()
    checkTools()
