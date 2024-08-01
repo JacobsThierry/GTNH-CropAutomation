@@ -150,7 +150,6 @@ local function isFinished()
 end
 
 local function checkChild(slot, crop)
-   print("kaboo")
    local farm = database.getFarm()
    if crop.isWorkable and crop.name ~= "emptyCrop" then
       if crop.name == "air" then
@@ -169,22 +168,22 @@ local function checkChild(slot, crop)
          actions.deweed()
          actions.placeCropStick()
          actions.applyWeedex()
-      end
-   else
-      local cropScore = getCropScore(crop)
-      if cropScore > lowestParentScore then
-         actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScore))
-         actions.placeCropStick(2)
-         database.updateFarm(lowestParentScore, crop)
-         updateDbInfos()
       else
-         if crop.name == targetCrop then
-            local cropStats = crop.gr + crop.ga - crop.re
-            if cropStats >= config.autoStatThreshold then
-               -- keep the plant
-            else
-               actions.deweed()
-               actions.placeCropStick()
+         local cropScore = getCropScore(crop)
+         if cropScore > lowestParentScore then
+            actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScore))
+            actions.placeCropStick(2)
+            database.updateFarm(lowestParentScore, crop)
+            updateDbInfos()
+         else
+            if crop.name == targetCrop then
+               local cropStats = crop.gr + crop.ga - crop.re
+               if cropStats >= config.autoStatThreshold then
+                  -- keep the plant
+               else
+                  actions.deweed()
+                  actions.placeCropStick()
+               end
             end
          end
       end

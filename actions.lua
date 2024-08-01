@@ -81,7 +81,6 @@ local function restockWeedex()
     gps.go(config.weedexContainerPos)
     robot.select(robot.inventorySize() + config.weedexSlot)
 
-    robot.select(robot.inventorySize() + config.weedexSlot)
     for i = 1, inventory_controller.getInventorySize(sides.down) do
         if inventory_controller.getSlotStackSize(sides.down, i) > 0 then
             inventory_controller.suckFromSlot(sides.down, i, 1)
