@@ -61,7 +61,6 @@ local function getCropScore(crop)
       attributesMultiplier = 1
    else
       local targetedAttributes = CROPDATA[targetCrop]["attributes"]
-      print(targetedAttributes)
       local cropAttributes = CROPDATA[crop.name]["attributes"]
       local commonAttributesCount = 0
 
@@ -171,6 +170,7 @@ local function checkChild(slot, crop)
          if cropScore > lowestParentScore then
             actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScoreSlot))
             actions.placeCropStick(2)
+            actions.applyWeedex()
             database.updateFarm(lowestParentScore, crop)
             updateDbInfos()
          else
@@ -181,6 +181,7 @@ local function checkChild(slot, crop)
                else
                   actions.deweed()
                   actions.placeCropStick()
+                  actions.applyWeedex()
                end
             end
          end
