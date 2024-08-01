@@ -892,3 +892,5 @@ local CROPDATA = {
       ["attributes"] = {[1] = "Purple", [2] = "Flower", [3] = "Tulip"}
    }
 }
+
+return CROPDATA

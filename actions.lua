@@ -56,7 +56,7 @@ end
 
 local weedExEmpty = false
 
-function checkWeedexStock()
+local function checkWeedexStock()
     gps.save()
     gps.go(config.weedexContainerPos)
     weedExEmpty = true
@@ -69,7 +69,7 @@ function checkWeedexStock()
     gps.resume()
 end
 
-function restockWeedex()
+local function restockWeedex()
     -- Do not go to the weedex chest if we know it's empty
     -- if the player refill the weedex, weedExEmpty will be updated next refillAll
     if weedExEmpty then
