@@ -150,12 +150,31 @@ local function isFinished()
 end
 
 local function checkChild(slot, crop)
+   local farm = database.getFarm()
    if crop.isWorkable and crop.name ~= "emptyCrop" then
       if crop.name == "air" then
-         actions.placeCropStick(2)
+         if slot > 1 then
+            if slot < config.workingFarmArea then
+               if farm[slot + 1].isCrop and farm[slot - 1].isCrop then
+                  actions.placeCropStick(2)
+                  actions.applyWeedex()
+               else
+                  if farm[slot - 1].isCrop then
+                     actions.placeCropStick(2)
+                     actions.applyWeedex()
+                  end
+               end
+            end
+         else
+            if farm[slot + 1].isCrop then
+               actions.placeCropStick(2)
+               actions.applyWeedex()
+            end
+         end
       elseif scanner.isWeed(crop) then
          actions.deweed()
          actions.placeCropStick()
+         actions.applyWeedex()
       end
    else
       local cropScore = getCropScore(crop)
