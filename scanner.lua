@@ -29,7 +29,7 @@ local function scan()
             }
         end
     else
-        return {isWorkable = false, name = "block"}
+        return {isWorkable = false, isCrop = false, name = "block"}
     end
 end
 
