@@ -27,12 +27,13 @@ end
 local function checkTools()
    print("doo")
    local spadeItem = inventory_controller.getStackInInternalSlot(config.spadeSlot)
+   print("foo")
+   os.exit(0)
 
    if spadeItem == nil or spadeItem.name ~= "berriespp:itemSpade" then
       print("No spade in the spade slot!")
       os.exit(0)
    end
-   print("foo")
 
    local binderItem = inventory_controller.getStackInInternalSlot(config.binderSlot)
 
