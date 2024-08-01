@@ -28,13 +28,15 @@ local function checkTools()
    local spadeItem = inventory_controller.getStackInInternalSlot(config.spadeSlot)
 
    if spadeItem == nil or spadeItem.name ~= "berriespp:itemSpade" then
-      error("No spade in the spade slot!")
+      print("No spade in the spade slot!")
+      os.exit(0)
    end
 
    local binderItem = inventory_controller.getStackInInternalSlot(config.binderSlot)
 
    if binderItem == nil or binderItem.name ~= "ThaumicTinkerer:connector" then
-      error("No binder in the binder slot!")
+      print("No binder in the binder slot!")
+      os.exit(0)
    end
 end
 
@@ -218,7 +220,8 @@ local function main()
    else -- Check if the plant exists
       config.targetCrop = string.lower(config.targetCrop)
       if CROPDATA[config.targetCrop] == nil then
-         error("The targeted crop does not exists")
+         print("The targeted crop does not exists")
+         return
       end
    end
 
