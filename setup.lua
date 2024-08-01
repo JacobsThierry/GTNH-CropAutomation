@@ -24,7 +24,7 @@ end
 if #args >= 2 then
     repo = args[2]
 else
-    repo = "https://raw.githubusercontent.com/JacobsThierry/GTNH-CropAutomation/tree/main"
+    repo = "https://raw.githubusercontent.com/JacobsThierry/GTNH-CropAutomation/"
 end
 
 -- INSTALL

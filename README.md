@@ -6,22 +6,22 @@ These Open Computers (OC) scripts will automatically tier-up, stat-up, and sprea
 
 Obtaining these components will require access to EV circuits and epoxid (mid-late HV). It is possible to save some resources by not including the internet card, but that will require manually copying and pasting the code from GitHub which is NOT recommended for multiple reasons. Both inventory upgrades are necessary.
 
-- OC Electronics Assembler
-- OC Charger
-- Tier 2 Computer Case
-- Tier 2 Accelerated Processing Unit
-- Tier 2 Memory
-- Tier 1 Redstone Card
-- Tier 1 Hard Disk Drive
-- Tier 1 Screen
-- Geolyzer
-- Keyboard
-- Disk Drive (Block)
-- Internet Card
-- Inventory Controller Upgrade
-- Inventory Upgrade
-- EEPROM (Lua BIOS)
-- OpenOS Floppy Disk
+-  OC Electronics Assembler
+-  OC Charger
+-  Tier 2 Computer Case
+-  Tier 2 Accelerated Processing Unit
+-  Tier 2 Memory
+-  Tier 1 Redstone Card
+-  Tier 1 Hard Disk Drive
+-  Tier 1 Screen
+-  Geolyzer
+-  Keyboard
+-  Disk Drive (Block)
+-  Internet Card
+-  Inventory Controller Upgrade
+-  Inventory Upgrade
+-  EEPROM (Lua BIOS)
+-  OpenOS Floppy Disk
 
 ![Robot Components](media/Robot_Components.png?)
 
@@ -29,22 +29,22 @@ Lastly, you need a Transvector Binder and Transvector Dislocator which requires 
 
 # Building the Robot
 
-1) Insert the computer case into the OC Electronics Assembler which can be powered directly by any GT cable.
-2) Shift-click all of the components into the computer case except the OpenOS floppy disk
-3) Click assemble and wait until it completes (~3 min).
-4) Rename the robot in an anvil.
-5) Place the robot on the OC Charger which can also be powered directly by any GT cable. The OC Charger must be activated using some form of redstone such as a lever.
-6) Insert the OpenOS floppy disk into the disk slot of the robot and press the power button
-7) Follow the commands on screen 'install' --> 'Y' --> 'Y' (Note: The OpenOS floppy disk is no longer needed in the robot afterwards)
-8) Install the required scripts by copying this line of code into the robot (middle-click to paste)
+1. Insert the computer case into the OC Electronics Assembler which can be powered directly by any GT cable.
+2. Shift-click all of the components into the computer case except the OpenOS floppy disk
+3. Click assemble and wait until it completes (~3 min).
+4. Rename the robot in an anvil.
+5. Place the robot on the OC Charger which can also be powered directly by any GT cable. The OC Charger must be activated using some form of redstone such as a lever.
+6. Insert the OpenOS floppy disk into the disk slot of the robot and press the power button
+7. Follow the commands on screen 'install' --> 'Y' --> 'Y' (Note: The OpenOS floppy disk is no longer needed in the robot afterwards)
+8. Install the required scripts by copying this line of code into the robot (middle-click to paste)
 
-        wget https://raw.githubusercontent.com/DylanTaylor1/GTNH-CropAutomation/main/setup.lua && setup
+        wget https://raw.githubusercontent.com/JacobsThierry/GTNH-CropAutomation/main/setup.lua && setup
 
-9) Edit the config (not recommended, but check it out) by entering:
+9. Edit the config (not recommended, but check it out) by entering:
 
         edit config.lua
 
-10) Place the Spade and Transvector Binder into the last and second to last slot of the robot, respectively. Crop sticks will go in the third, but it is not required to put them in yourself. An axe or mattock can also be placed into the tool slot of the robot to speed up destroying crops (optional). See image below.
+10.   Place the Spade and Transvector Binder into the last and second to last slot of the robot, respectively. Crop sticks will go in the third, but it is not required to put them in yourself. An axe or mattock can also be placed into the tool slot of the robot to speed up destroying crops (optional). See image below.
 
 ![Robot Inventory](media/Robot_Inventory.png?)
 
@@ -66,7 +66,7 @@ The starting crops must be placed manually in the checkerboard pattern seen in t
 
 ![Farm Bottom](media/Farm_Bottom.png?)
 
-Underneath the farm, you can see that there are three additional dirt blocks below each farmland, each of which add to the nutrient stat of the crop above it. For crops requiring a block underneath, that should be placed at the bottom. In this case, I have diareed planted on top which means I have one farmland --> two dirt --> one diamond block underneath each one. I do not have diamond blocks underneath the working farm because the diareed does not need to be fully grown in order to spread. 
+Underneath the farm, you can see that there are three additional dirt blocks below each farmland, each of which add to the nutrient stat of the crop above it. For crops requiring a block underneath, that should be placed at the bottom. In this case, I have diareed planted on top which means I have one farmland --> two dirt --> one diamond block underneath each one. I do not have diamond blocks underneath the working farm because the diareed does not need to be fully grown in order to spread.
 
 For power, I am using an HV gas turbine and a super tank with some benzene (no transformer needed). This is a little overkill, but the important part is that the charger is always at 100% charging speed which you can see by hovering over it. A set-up such as this will last forever with a few hundred thousand benzene since both machines require very little EU/t. Lastly, a reservoir feeds water into the crop-matron automatically after right-clicking it with a wrench.
 
@@ -92,23 +92,23 @@ To pause the robot during any of these programs, just turn off the OC Charger. T
 
 # Troubleshooting
 
-1) The Transvector Dislocator is randomly moved to somewhere on the working farm
+1. The Transvector Dislocator is randomly moved to somewhere on the working farm
 
 _Solution: Cover your water sources. Otherwise the order of the transvector binder will get messed up and teleport the dislocator instead of a crop._
 
-4) The Robot is randomly moved to somewhere on the working farm
+4. The Robot is randomly moved to somewhere on the working farm
 
 _Solution: Check the orientation of the transvector dislocator. This can only happen if the dislocator is facing up instead of forward._
 
-3) The Robot is destroying all of the crops that were manually placed
+3. The Robot is destroying all of the crops that were manually placed
 
 _Solution: Either the resistance or growth stats of the parent crops are too high. By default, anything above 2 resistance or 21 growth is treated like a weed and will be removed. These values, including the maximum stats of child crops, are all easily changed in the config._
 
-4) Crops are randomly dying OR the farms are being overrun with weeds OR there are single crop sticks where there should be double
+4. Crops are randomly dying OR the farms are being overrun with weeds OR there are single crop sticks where there should be double
 
 _Solution: Possibly change location. Crops have minimum environmental stat requirements (nutrients, humidity, air quality) and going below this threshold will kill the crop and leave an empty crop stick behind that is susceptible to growing weeds and overtaking the farms._
 
-5) There is a PKIX path building error when downloading the files from GitHub
+5. There is a PKIX path building error when downloading the files from GitHub
 
 _Solution: This is from having outdated java certificates. Try updating your java (21 is recommended), but be prepared to manually install the files by copy-pasting the code from GitHub. The "Other Helpful Commands" section below can help with that._
 
@@ -116,20 +116,20 @@ _Solution: This is from having outdated java certificates. Try updating your jav
 
 For starters, I recommend statting-up and spreading the following crops because their outputs are useful and not completely overshadowed by bees. Note that every crop has a higher chance of being discovered with specific parent combinations, but it is often easier to discover a crop from crossbreeding at the same tier. For example, diareed apparently has the highest chance of being discovered when the parents are oilberry and bobsyeruncleranks, BUT I recommend just running autoTier with all Tier 12 crops (or autoSpread with keepMutations on in the config). Crops that require a particular block underneath do not need to be fully grown in order to spread. For a full list of crops and their requirements, visit https://gtnh.miraheze.org/wiki/IC2_Crops_List.
 
-- **Stickreed** for sticky resin and discovering/breeding with other crops
-- **Spruce Bonsai** for all of your benzene and power needs
-- **Black Stonelilly** for black granite dust (fluorine, potassium, magnesium, aluminium, silicon)
-- **Nether Stonelilly** for netherrack dust (coal, sulfur, redstone, gold)
-- **Yellow Stonelilly** for endstone dust (helium, tungstate, platinum metallic powder)
-- **Sugarbeet** for sugar (oxygen)
-- **Salty root** OR **Tearstalks** for salt (sodium and chlorine)
-- **Enderbloom** for enderpearls and endereyes
-- **Glowing Earth Coral** for sunnarium and glowstone (gold and redstone)
-- **Rape** for seed oil
-- **Goldfish Plant** for fish oil
-- **Diareed** for diamonds
-- **Bobsyeruncleranks** for emeralds
-- **Transformium** for UU-Matter
+-  **Stickreed** for sticky resin and discovering/breeding with other crops
+-  **Spruce Bonsai** for all of your benzene and power needs
+-  **Black Stonelilly** for black granite dust (fluorine, potassium, magnesium, aluminium, silicon)
+-  **Nether Stonelilly** for netherrack dust (coal, sulfur, redstone, gold)
+-  **Yellow Stonelilly** for endstone dust (helium, tungstate, platinum metallic powder)
+-  **Sugarbeet** for sugar (oxygen)
+-  **Salty root** OR **Tearstalks** for salt (sodium and chlorine)
+-  **Enderbloom** for enderpearls and endereyes
+-  **Glowing Earth Coral** for sunnarium and glowstone (gold and redstone)
+-  **Rape** for seed oil
+-  **Goldfish Plant** for fish oil
+-  **Diareed** for diamonds
+-  **Bobsyeruncleranks** for emeralds
+-  **Transformium** for UU-Matter
 
 ## Other Helpful Commands
 
