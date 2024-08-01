@@ -114,7 +114,7 @@ local function updateDbInfos()
    -- Find lowest stat slot
    for slot = 1, config.workingFarmArea do
       local crop = farm[slot]
-      if crop.isWorkable then
+      if crop.isWorkable and crop.isCrop then
          if crop.name ~= targetCrop then
             isEveryPlantTarget = false
          end

@@ -12,14 +12,13 @@ local function scan()
     if rawResult.name == "minecraft:air" or rawResult.name == "GalacticraftCore:tile.brightAir" then
         return {isWorkable = true, isCrop = false, name = "air"}
     elseif rawResult.name == "IC2:blockCrop" then
-        -- RANDOM BLOCK
         -- EMPTY CROP STICK
         if rawResult["crop:name"] == nil then
             return {isWorkable = false, isCrop = false, name = "emptyCrop"}
         else
             return {
                 isWorkable = true,
-                isCrop = false,
+                isCrop = true,
                 name = rawResult["crop:name"],
                 gr = rawResult["crop:growth"],
                 ga = rawResult["crop:gain"],
@@ -28,6 +27,7 @@ local function scan()
             }
         end
     else
+        -- RANDOM BLOCK
         return {isWorkable = false, isCrop = false, name = "block"}
     end
 end
