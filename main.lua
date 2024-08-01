@@ -202,18 +202,12 @@ local function tickOnce()
    end
 end
 
-local function init()
-   actions.restockAll()
-   actions.scanFarm()
-   updateDbInfos()
-end
-
 local function main()
    print("woo")
    parseArguments()
    checkTools()
 
-   init()
+   actions.restockAll()
    actions.scanFarm()
 
    if config.targetCrop == nil then
@@ -223,11 +217,13 @@ local function main()
       config.targetCrop = string.lower(config.targetCrop)
       if CROPDATA[config.targetCrop] == nil then
          print("The targeted crop does not exists")
-         return
+         os.exit(0)
       end
    end
 
    print("Target crop : " .. targetCrop)
+
+   updateDbInfos()
 
    while not isFinished() do
       tickOnce()
