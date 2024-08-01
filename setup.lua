@@ -6,6 +6,7 @@ local scripts = {
     "actions.lua",
     "database.lua",
     "gps.lua",
+    "cropData.lua",
     "scanner.lua",
     "config.lua",
     "main.lua",
