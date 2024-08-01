@@ -14,7 +14,6 @@ local shell = require("shell")
 local CROPDATA = require("cropData")
 
 local targetCrop = nil
-local emptySlot
 
 local args, options = shell.parse(...)
 
@@ -219,7 +218,6 @@ end
 
 local function main()
    parseArguments()
-   print(config.targetCrop)
    checkTools()
 
    actions.scanFarm()
