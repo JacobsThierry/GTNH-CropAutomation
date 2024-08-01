@@ -78,6 +78,7 @@ local function restockWeedex()
     local selectedSlot = robot.select()
 
     robot.select(robot.inventorySize() + config.weedexSlot)
+    print(robot.count)
     if robot.count == 0 then
         gps.save()
         gps.go(config.weedexContainerPos)
