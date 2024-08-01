@@ -38,11 +38,11 @@ Lastly, you need a Transvector Binder and Transvector Dislocator which requires 
 7. Follow the commands on screen 'install' --> 'Y' --> 'Y' (Note: The OpenOS floppy disk is no longer needed in the robot afterwards)
 8. Install the required scripts by copying this line of code into the robot (middle-click to paste)
 
-       wget https://raw.githubusercontent.com/JacobsThierry/GTNH-CropAutomation/main/setup.lua?token=$(date%20+%s) && setup
+   wget https://raw.githubusercontent.com/JacobsThierry/GTNH-CropAutomation/main/setup.lua && setup
 
 9. Edit the config (not recommended, but check it out) by entering:
 
-       edit config.lua
+   edit config.lua
 
 10.   Place the Spade and Transvector Binder into the last and second to last slot of the robot, respectively. Crop sticks will go in the third, but it is not required to put them in yourself. An axe or mattock can also be placed into the tool slot of the robot to speed up destroying crops (optional). See image below.
 
