@@ -137,6 +137,9 @@ local function updateDbInfos()
                lowestParentScoreSlot = slot
             end
          end
+      else
+         isEveryPlantTarget = false
+         isEveryPlantGoodEnough = false
       end
    end
 end
