@@ -34,8 +34,10 @@ local function scan()
 end
 
 local function isWeed(crop)
-    return not crop.isWorkable or not crop.isCrop or crop.name == "weed" or crop.name == "Grass" or
-        crop.gr > config.workingMaxGrowth or
+    if not crop.isCrop or not crop.isWorkable then
+        return false
+    end
+    return crop.name == "weed" or crop.name == "Grass" or crop.gr > config.workingMaxGrowth or
         crop.re > config.workingMaxResistance or
         (crop.name == "venomilia" and crop.gr > 7)
 end
