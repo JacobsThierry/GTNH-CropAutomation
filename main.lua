@@ -203,7 +203,6 @@ end
 
 local function init()
    actions.restockAll()
-   database.resetStorage()
    actions.scanFarm()
    updateDbInfos()
 end
