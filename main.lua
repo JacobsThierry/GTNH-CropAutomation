@@ -20,7 +20,6 @@ local args, options = shell.parse(...)
 
 local function parseArguments()
    for k, v in pairs(options) do
-      print("k = " .. tostring(k) .. " v = " .. tostring(v))
       config[k] = v
    end
 end
