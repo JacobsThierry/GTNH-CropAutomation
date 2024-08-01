@@ -204,6 +204,7 @@ local function tickOnce()
 
       gps.go(gps.workingSlotToPos(slot))
       local crop = scanner.scan()
+      database.updateFarm(slot, crop)
 
       if isChild then
          checkChild(slot, crop)
