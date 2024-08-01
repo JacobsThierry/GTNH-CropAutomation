@@ -77,22 +77,25 @@ local function restockWeedex()
     end
     local selectedSlot = robot.select()
     local empty = true
-    gps.save()
-    gps.go(config.weedexContainerPos)
-    robot.select(robot.inventorySize() + config.weedexSlot)
 
-    for i = 1, inventory_controller.getInventorySize(sides.down) do
-        if inventory_controller.getSlotStackSize(sides.down, i) > 0 then
-            inventory_controller.suckFromSlot(sides.down, i, 1)
-            empty = false
-            if robot.count() == 1 then
-                break
+    robot.select(robot.inventorySize() + config.weedexSlot)
+    if robot.count == 0 then
+        gps.save()
+        gps.go(config.weedexContainerPos)
+
+        for i = 1, inventory_controller.getInventorySize(sides.down) do
+            if inventory_controller.getSlotStackSize(sides.down, i) > 0 then
+                inventory_controller.suckFromSlot(sides.down, i, 1)
+                empty = false
+                if robot.count() == 1 then
+                    break
+                end
             end
         end
+        weedExEmpty = empty
     end
-
-    weedExEmpty = empty
     robot.select(selectedSlot)
+    inventory_controller.equip()
     gps.resume()
 end
 
@@ -259,6 +262,7 @@ function transplant(src, dest)
 
     gps.resume()
     robot.select(selectedSlot)
+    inventory_controller.equip()
 end
 
 function cleanUp()
