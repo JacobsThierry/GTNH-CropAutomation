@@ -86,9 +86,7 @@ local function restockWeedex()
             if robot.count(robot.inventorySize() + config.weedexSlot) > 0 then
                 break
             end
-            if inventory_controller.getSlotStackSize(sides.down, i) > 0 then
-                inventory_controller.suckFromSlot(sides.down, i, 1)
-            end
+            inventory_controller.suckFromSlot(sides.down, i, 1)
         end
     end
     robot.select(selectedSlot)
