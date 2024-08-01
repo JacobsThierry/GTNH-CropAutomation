@@ -29,5 +29,5 @@ end
 
 -- INSTALL
 for i = 1, #scripts do
-    shell.execute(string.format("wget -f %s%s/%s?token=$(date%%20+%%s)", repo, branch, scripts[i]))
+    shell.execute(string.format("wget --no-cache -f %s%s/%s?token=$(date%%20+%%s)", repo, branch, scripts[i]))
 end
