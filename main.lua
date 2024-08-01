@@ -17,7 +17,7 @@ local targetCrop = nil
 local emptySlot
 
 local function parseArguments()
-   local _, options = shell.parse()
+   local _, options = shell.parse(...)
 
    for k, v in pairs(options) do
       print("k = " .. tostring(k) .. " v = " .. tostring(v))
