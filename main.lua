@@ -169,7 +169,7 @@ local function checkChild(slot, crop)
          local cropScore = getCropScore(crop)
 
          if cropScore > lowestParentScore then
-            actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScore))
+            actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScoreSlot))
             actions.placeCropStick(2)
             database.updateFarm(lowestParentScore, crop)
             updateDbInfos()
