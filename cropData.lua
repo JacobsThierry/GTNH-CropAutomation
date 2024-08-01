@@ -893,4 +893,4 @@ local CROPDATA = {
    }
 }
 
-return cropdata
+return CROPDATA

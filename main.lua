@@ -22,6 +22,7 @@ local function parseArguments()
    for k, v in pairs(options) do
       config[k] = v
    end
+   print("Config = " .. config.targetCrop)
 end
 
 local function checkTools()
@@ -218,6 +219,7 @@ end
 
 local function main()
    parseArguments()
+   print(config.targetCrop)
    checkTools()
 
    actions.scanFarm()
@@ -232,6 +234,7 @@ local function main()
          print("The targeted crop does not exists")
          os.exit(0)
       end
+      targetCrop = config.targetCrop
    end
 
    print("Target crop : " .. targetCrop)
