@@ -19,7 +19,7 @@ local emptySlot
 local function parseArguments()
    local _, options = shell.parse()
 
-   for k, v in ipairs(options) do
+   for k, v in pairs(options) do
       print("k = " .. tostring(k) .. " v = " .. tostring(v))
       config[k] = v
    end
