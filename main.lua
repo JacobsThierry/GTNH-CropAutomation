@@ -153,20 +153,13 @@ local function checkChild(slot, crop)
    local farm = database.getFarm()
    if crop.isWorkable and crop.name ~= "emptyCrop" then
       if crop.name == "air" then
-         if slot > 1 then
-            if slot < config.workingFarmArea then
-               if farm[slot + 1].isCrop and farm[slot - 1].isCrop then
-                  actions.placeCropStick(2)
-                  actions.applyWeedex()
-               else
-                  if farm[slot - 1].isCrop then
-                     actions.placeCropStick(2)
-                     actions.applyWeedex()
-                  end
-               end
+         if slot < config.workingFarmArea then
+            if farm[slot - 1].isCrop and farm[slot + 1].isCrop then
+               actions.placeCropStick(2)
+               actions.applyWeedex()
             end
          else
-            if farm[slot + 1].isCrop then
+            if farm[slot - 1].isCrop then
                actions.placeCropStick(2)
                actions.applyWeedex()
             end
