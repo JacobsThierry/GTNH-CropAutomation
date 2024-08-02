@@ -291,6 +291,12 @@ function scanFarm()
             robot.swingDown()
             crop = scanner.scan()
         end
+
+        if crop.name == "emptyCrop" then
+            robot.swingDown()
+            crop = scanner.scan()
+        end
+
         database.updateFarm(slot, crop)
     end
 end
