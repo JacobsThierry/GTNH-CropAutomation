@@ -291,6 +291,7 @@ function scanFarm()
 
         if scanner.isWeed(crop) then
             deweed()
+            robot.swingDown()
             crop = scanner.scan()
         end
         database.updateFarm(slot, crop)
