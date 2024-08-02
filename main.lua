@@ -151,7 +151,10 @@ local function checkChild(slot, crop)
    if crop.isWorkable and crop.name ~= "emptyCrop" then
       if crop.name == "air" then
          if slot < config.workingFarmArea then
-            if farm[slot - 1].isCrop and farm[slot + 1].isCrop then
+            if
+               (farm[slot - 1].isCrop or not farm[slot - 1].isWorkable) and
+                  (farm[slot + 1].isCrop or not farm[slot + 1].isWorkable)
+             then
                actions.placeCropStick(2)
                actions.applyWeedex()
             end
