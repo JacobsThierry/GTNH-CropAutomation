@@ -173,7 +173,7 @@ local function checkChild(slot, crop)
             actions.placeCropStick(2)
             actions.applyWeedex()
             database.updateFarm(slot, scanner.scan())
-            database.updateFarm(lowestParentScore, crop)
+            database.updateFarm(lowestParentScoreSlot, crop)
             updateDbInfos()
          else
             if crop.name == targetCrop then
