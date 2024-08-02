@@ -177,15 +177,17 @@ local function checkChild(slot, crop)
 
          if cropScore > lowestParentScore then
             local lowestCrop = farm[lowestParentScore]
-            local lowestCropStats = lowestCrop.gr + lowestCrop.ga - lowestCrop.re
 
-            if lowestCrop.name ~= targetCrop or lowestCropStats < config.autoStatThreshold then
-               actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScoreSlot))
-               actions.placeCropStick(2)
-               actions.applyWeedex()
-               database.updateFarm(slot, scanner.scan())
-               database.updateFarm(lowestParentScoreSlot, crop)
-               updateDbInfos()
+            if lowestCrop.name == targetCrop then
+               local lowestCropStats = lowestCrop.gr + lowestCrop.ga - lowestCrop.re
+               if lowestCropStats > config.autoTierThreshold then
+                  actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScoreSlot))
+                  actions.placeCropStick(2)
+                  actions.applyWeedex()
+                  database.updateFarm(slot, scanner.scan())
+                  database.updateFarm(lowestParentScoreSlot, crop)
+                  updateDbInfos()
+               end
             end
          else
             if crop.name == targetCrop then
