@@ -11,8 +11,6 @@ local config = {
     parentThreshold = 53,
     -- Targeted Gr + Ga - Re (23 + 31 - 0 = 54)
     targetedStats = 54,
-    -- Minimum Gr + Ga - Re for the storage farm during autoSpread (23 + 31 - 0 = 54)
-    autoSpreadThreshold = 50,
     -- Maximum Growth for crops on the working farm
     workingMaxGrowth = 21,
     -- Maximum Resistance for crops on the working farm
