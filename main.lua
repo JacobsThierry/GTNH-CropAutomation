@@ -235,6 +235,12 @@ local function tickOnce()
       local crop = scanner.scan()
       database.updateFarm(slot, crop)
 
+      if scanner.isWeed(crop) then
+         actions.deweed()
+         database.updateFarm(slot, {isCrop = true, isWorkable = true, name = "emptyCrop"})
+         updateDbInfos()
+      end
+
       if isChild then
          checkChild(slot, crop)
       else
