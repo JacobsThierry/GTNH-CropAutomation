@@ -42,7 +42,14 @@ local function scan()
         end
     else
         -- RANDOM BLOCK
-        return {isWorkable = false, isCrop = false, name = "block"}
+        return {
+            isWorkable = false,
+            isCrop = false,
+            name = "block",
+            gr = 0,
+            ga = 0,
+            re = 0
+        }
     end
 end
 
@@ -50,7 +57,7 @@ local function isWeed(crop)
     if not crop.isCrop or not crop.isWorkable then
         return false
     end
-    return crop.name == "weed" or crop.name == "Grass" or crop.gr > config.workingMaxGrowth or
+    return crop.name == "weed" or crop.name == "grass" or crop.gr > config.workingMaxGrowth or
         crop.re > config.workingMaxResistance or
         (crop.name == "venomilia" and crop.gr > 7)
 end

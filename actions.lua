@@ -257,8 +257,9 @@ function transplant(src, dest)
     end
 
     gps.resume()
-    robot.select(selectedSlot)
+
     inventory_controller.equip()
+    robot.select(selectedSlot)
 end
 
 function cleanUp()
