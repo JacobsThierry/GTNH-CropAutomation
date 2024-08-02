@@ -194,11 +194,8 @@ function deweed()
         robot.suckDown()
     end
 
-    -- if we're in an even spot, re-apply weedex
     local slot = gps.getWorkingSlot()
-    if slot % 2 == 0 then
-        applyWeedex()
-    else --otherwise, remove the cropstick and update the database
+    if slot % 2 == 1 then
         robot.swingDown()
         local crop = scanner.scan()
         database.updateFarm(slot, crop)
