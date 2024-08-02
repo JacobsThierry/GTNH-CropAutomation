@@ -188,6 +188,10 @@ local function checkChild(slot, crop)
                   actions.placeCropStick()
                   actions.applyWeedex()
                end
+            else
+               actions.deweed()
+               actions.placeCropStick()
+               actions.applyWeedex()
             end
          end
       end
