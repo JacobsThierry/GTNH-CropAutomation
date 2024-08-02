@@ -237,8 +237,6 @@ local function main()
 
    print("Target crop : " .. targetCrop)
 
-   updateDbInfos()
-
    while not isFinished() do
       tickOnce()
       actions.restockAll()
