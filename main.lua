@@ -219,6 +219,10 @@ end
 
 local function tickOnce()
    for slot = 1, config.workingFarmArea, 1 do
+      if actions.needCharge then
+         actions.charge()
+      end
+
       local isChild = slot % 2 == 0
 
       gps.go(gps.workingSlotToPos(slot))
