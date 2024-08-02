@@ -124,7 +124,11 @@ local function updateDbInfos()
          end
 
          local cropStats = crop.gr + crop.ga - crop.re
-         if cropStats < config.autoTierThreshold then
+         if slot % 2 == 1 and cropStats < config.parentThreshold then
+            isEveryPlantGoodEnough = false
+         end
+
+         if slot % 2 == 0 and cropStats < config.childThreshold then
             isEveryPlantGoodEnough = false
          end
 
@@ -183,9 +187,9 @@ local function checkChild(slot, crop)
             worstParentStat = worstParent.gr + worstParent.ga - worstParent.re
          end
 
-         local isWorstParentGoodEnough = worstParent.name == targetCrop and worstParentStat >= config.autoStatThreshold
+         local isWorstParentGoodEnough = worstParent.name == targetCrop and worstParentStat >= config.parentThreshold
 
-         local isChildGoodEnough = crop.name == targetCrop and cropStats > config.autoStatThreshold
+         local isChildGoodEnough = crop.name == targetCrop and cropStats > config.childThreshold
 
          local isChildBetter = cropScore > lowestParentScore
 

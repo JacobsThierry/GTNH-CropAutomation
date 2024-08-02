@@ -3,18 +3,12 @@ local config = {
 
     -- Side Length of Working Farm
     workingFarmSize = 16,
-    -- Once complete, remove all extra crop sticks to prevent the working farm from weeding
-    cleanUp = true,
     -- Pickup any and all drops (don't change)
     keepDrops = true,
-    -- Keep crops that are not the target crop during autoSpread and autoStat
-    keepMutations = false,
-    -- Stat-up crops during autoTier (Very Slow)
-    statWhileTiering = false,
-    -- Minimum tier for the working farm during autoTier
-    autoTierThreshold = 13,
     -- Minimum Gr + Ga - Re for the working farm during autoStat (21 + 31 - 0 = 52)
-    autoStatThreshold = 52,
+    childThreshold = 52,
+    -- Minimum Gr + Ga - Re for the working farm during autoStat (21 + 31 - 0 = 52)
+    parentThreshold = 53,
     -- Targeted Gr + Ga - Re (23 + 31 - 0 = 54)
     targetedStats = 54,
     -- Minimum Gr + Ga - Re for the storage farm during autoSpread (23 + 31 - 0 = 54)
