@@ -83,7 +83,7 @@ local function getCropScore(crop)
          end
          attributesMultiplier = (commonAttributesCount + 1) / (targetedCropAttributeCount + 1)
       end
-      local tierDif = math.abs(CROPDATA[crop.name]["tier"] - CROPDATA[targetCrop]["tier"])
+      local tierDif = math.abs(CROPDATA[string.lower(crop.name)]["tier"] - CROPDATA[string.lower(targetCrop)]["tier"])
       tierDifMultiplier = 1 - math.max(1 - tierDif / 15, 0) -- max tier is 16, max diff should be 15
    end
 
@@ -229,7 +229,7 @@ local function main()
       config.targetCrop = targetCrop
    else -- Check if the plant exists
       config.targetCrop = string.lower(config.targetCrop)
-      if CROPDATA[config.targetCrop] == nil then
+      if CROPDATA[string.lower(config.targetCrop)] == nil then
          print("The targeted crop does not exists")
          os.exit(0)
       end
