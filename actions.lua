@@ -91,7 +91,6 @@ local function restockWeedex()
         end
     end
     robot.select(selectedSlot)
-    inventory_controller.equip()
     gps.resume()
 end
 
@@ -151,13 +150,14 @@ end
 
 function applyWeedex()
     local selectedSlot = robot.select()
+    robot.select(robot.inventorySize() + config.weedexSlot)
+    inventory_controller.equip()
+
     if robot.count(robot.inventorySize() + config.weedexSlot) == 0 then
         restockWeedex()
     end
 
     if robot.count(robot.inventorySize() + config.weedexSlot) > 0 then
-        robot.select(robot.inventorySize() + config.weedexSlot)
-        inventory_controller.equip()
         robot.useDown()
     end
 
@@ -257,8 +257,6 @@ function transplant(src, dest)
     end
 
     gps.resume()
-
-    inventory_controller.equip()
     robot.select(selectedSlot)
 end
 
