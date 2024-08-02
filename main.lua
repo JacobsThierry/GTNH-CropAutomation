@@ -63,8 +63,8 @@ local function getCropScore(crop)
       local targetedAttributes = CROPDATA[string.lower(targetCrop)]["attributes"]
 
       if CROPDATA[string.lower(crop.name)] == nil then
-         print("WARNING, NO DATA FOR" .. crop.name)
-         os.exit(0)
+         print("WARNING, NO DATA FOR THE CROP " .. crop.name .. " IN THE DATABASE ")
+         return 0
       end
       local cropAttributes = CROPDATA[string.lower(crop.name)]["attributes"]
       local commonAttributesCount = 0
