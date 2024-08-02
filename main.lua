@@ -196,6 +196,7 @@ local function checkChild(slot, crop)
             database.updateFarm(slot, scanner.scan())
             database.updateFarm(lowestParentScoreSlot, crop)
             updateDbInfos()
+            actions.placeCropStick(2)
          elseif isChildGoodEnough then
             -- keep
          else
