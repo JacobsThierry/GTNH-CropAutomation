@@ -202,6 +202,8 @@ local function checkChild(slot, crop)
             actions.deweed()
             actions.placeCropStick()
             actions.applyWeedex()
+            database.updateFarm(slot, scanner.scan())
+            updateDbInfos()
          end
       end
    end

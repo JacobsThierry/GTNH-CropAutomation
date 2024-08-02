@@ -155,13 +155,12 @@ function applyWeedex()
         restockWeedex()
     end
 
-    inventory_controller.equip()
-
     if robot.count(robot.inventorySize() + config.weedexSlot) > 0 then
+        inventory_controller.equip()
         robot.useDown()
+        inventory_controller.equip()
     end
 
-    inventory_controller.equip()
     robot.select(selectedSlot)
 end
 
