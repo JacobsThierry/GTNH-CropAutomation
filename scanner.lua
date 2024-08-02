@@ -33,7 +33,7 @@ local function scan()
             return {
                 isWorkable = true,
                 isCrop = true,
-                name = rawResult["crop:name"],
+                name = string.lower(rawResult["crop:name"]),
                 gr = rawResult["crop:growth"],
                 ga = rawResult["crop:gain"],
                 re = rawResult["crop:resistance"],

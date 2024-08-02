@@ -174,34 +174,33 @@ local function checkChild(slot, crop)
          actions.applyWeedex()
       else
          local cropScore = getCropScore(crop)
+         local cropStats = crop.gr + crop.ga - crop.re
 
-         if cropScore > lowestParentScore then
-            local lowestCrop = farm[lowestParentScore]
+         local worstParent = farm[lowestParentScoreSlot]
+         local worstParentStat = 0
 
-            if lowestCrop.name == targetCrop then
-               local lowestCropStats = lowestCrop.gr + lowestCrop.ga - lowestCrop.re
-               if lowestCropStats > config.autoTierThreshold then
-                  actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScoreSlot))
-                  actions.placeCropStick(2)
-                  actions.applyWeedex()
-                  database.updateFarm(slot, scanner.scan())
-                  database.updateFarm(lowestParentScoreSlot, crop)
-                  updateDbInfos()
-               end
-            end
+         if worstParent.isCrop then
+            worstParentStat = worstParent.gr + worstParent.ga - worstParent.re
+         end
+
+         local isWorstParentGoodEnough = worstParent.name == targetCrop and worstParentStat >= config.autoStatThreshold
+
+         local isChildGoodEnough = crop.name == targetCrop and cropStats > config.autoStatThreshold
+
+         local isChildBetter = cropScore > lowestParentScore
+
+         if not isWorstParentGoodEnough and isChildBetter then
+            actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScoreSlot))
+            actions.placeCropStick(2)
+            actions.applyWeedex()
+            database.updateFarm(slot, scanner.scan())
+            database.updateFarm(lowestParentScoreSlot, crop)
+            updateDbInfos()
+         elseif isChildGoodEnough then
+            -- keep
          else
-            if crop.name == targetCrop then
-               local cropStats = crop.gr + crop.ga - crop.re
-               if cropStats >= config.autoStatThreshold then
-                  -- keep the plant
-               else
-                  actions.deweed()
-                  actions.placeCropStick()
-               end
-            else
-               actions.deweed()
-               actions.placeCropStick()
-            end
+            actions.deweed()
+            actions.placeCropStick()
          end
       end
    end
