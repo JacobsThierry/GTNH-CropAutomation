@@ -43,8 +43,8 @@ end
 -- Return a number between 0 and 1 were 1 is the perfect crop and 0 is weed
 local function getCropScore(crop)
    local statsWeight = 1
-   local attributesWeight = 0.5
-   local tierWeight = 0.9
+   local attributesWeight = 0.7
+   local tierWeight = 0.5
 
    if crop.name == "air" or crop.name == "emptyCrop" or scanner.isWeed(crop) then
       return -10
