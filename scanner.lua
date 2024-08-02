@@ -27,7 +27,8 @@ local function scan()
                 name = "emptyCrop",
                 gr = 0,
                 ga = 0,
-                re = 0
+                re = 0,
+                weedEx = rawResult["crop:weed-ex"]
             }
         else
             return {
