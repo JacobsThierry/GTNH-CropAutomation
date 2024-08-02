@@ -229,10 +229,6 @@ local function tickOnce()
          actions.charge()
       end
 
-      if actions.fullInventory() then
-         actions.dumpInventory()
-      end
-
       local isChild = slot % 2 == 0
 
       gps.go(gps.workingSlotToPos(slot))
