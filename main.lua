@@ -61,6 +61,12 @@ local function getCropScore(crop)
       attributesMultiplier = 1
    else
       local targetedAttributes = CROPDATA[targetCrop]["attributes"]
+
+      if (CROPDATA[crop.name] == nil) then
+         print("WARNING," .. crop.name .. " IS NOT IN THE DB")
+         return 0
+      end
+
       local cropAttributes = CROPDATA[crop.name]["attributes"]
       local commonAttributesCount = 0
 
