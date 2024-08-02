@@ -44,7 +44,7 @@ end
 local function getCropScore(crop)
    local statsWeight = 1
    local attributesWeight = 0.5
-   local tierWeight = 0.7
+   local tierWeight = 0.9
 
    if crop.name == "air" or crop.name == "emptyCrop" or scanner.isWeed(crop) then
       return -10
