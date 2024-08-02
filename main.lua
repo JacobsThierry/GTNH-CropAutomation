@@ -239,7 +239,6 @@ local function main()
 
    actions.scanFarm()
    actions.restockAll()
-   updateDbInfos()
 
    if config.targetCrop == nil then
       targetCrop = database.getFarm()[1].name
@@ -255,6 +254,7 @@ local function main()
 
    print("Target crop : " .. targetCrop)
 
+   updateDbInfos()
    while not isFinished() do
       tickOnce()
       actions.restockAll()
