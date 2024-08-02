@@ -24,7 +24,7 @@ local config = {
     -- Maximum Resistance for crops on the working farm
     workingMaxResistance = 2,
     -- Minimum Charge Level
-    needChargeLevel = 0.2,
+    needChargeLevel = 0.1,
     -- Max breed round before termination of autoTier.
     maxBreedRound = 1000,
     -- Crop target
