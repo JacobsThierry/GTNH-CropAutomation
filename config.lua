@@ -16,7 +16,7 @@ local config = {
     -- Maximum Resistance for crops on the working farm
     workingMaxResistance = 5,
     -- Minimum Charge Level
-    needChargeLevel = 0.1,
+    needChargeLevel = 0.25,
     -- Crop target
     targetCrop = nil,
     -- =========== DO NOT CHANGE ===========
