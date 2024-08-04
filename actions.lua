@@ -310,6 +310,7 @@ end
 return {
     needCharge = needCharge,
     charge = charge,
+    fullInventory = fullInventory,
     restockWeedex = restockWeedex,
     restockStick = restockStick,
     dumpInventory = dumpInventory,
