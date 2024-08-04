@@ -28,7 +28,8 @@ local function scan()
                 gr = 0,
                 ga = 0,
                 re = 0,
-                weedEx = rawResult["crop:weed-ex"]
+                weedEx = rawResult["crop:weed-ex"],
+                tier = 0
             }
         else
             return {

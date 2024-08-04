@@ -118,31 +118,33 @@ local function updateDbInfos()
    -- Find lowest stat slot
    for slot = 1, config.workingFarmArea do
       local crop = farm[slot]
-      if crop.isWorkable then
-         if crop.name ~= targetCrop then
-            isEveryPlantTarget = false
-         end
-
-         local cropStats = crop.gr + crop.ga - crop.re
-         if slot % 2 == 1 and cropStats < config.parentThreshold then
-            isEveryPlantGoodEnough = false
-         end
-
-         if slot % 2 == 0 and cropStats < config.childThreshold then
-            isEveryPlantGoodEnough = false
-         end
-
-         local isChild = slot % 2 == 0
-         local cropScore = getCropScore(crop)
-         if isChild then
-            if cropScore < lowestChildScore then
-               lowestChildScore = cropScore
-               lowestChildSlot = slot
+      if crop ~= nil then
+         if crop.isWorkable then
+            if crop.name ~= targetCrop then
+               isEveryPlantTarget = false
             end
-         else
-            if cropScore < lowestParentScore then
-               lowestParentScore = cropScore
-               lowestParentScoreSlot = slot
+
+            local cropStats = crop.gr + crop.ga - crop.re
+            if slot % 2 == 1 and cropStats < config.parentThreshold then
+               isEveryPlantGoodEnough = false
+            end
+
+            if slot % 2 == 0 and cropStats < config.childThreshold then
+               isEveryPlantGoodEnough = false
+            end
+
+            local isChild = slot % 2 == 0
+            local cropScore = getCropScore(crop)
+            if isChild then
+               if cropScore < lowestChildScore then
+                  lowestChildScore = cropScore
+                  lowestChildSlot = slot
+               end
+            else
+               if cropScore < lowestParentScore then
+                  lowestParentScore = cropScore
+                  lowestParentScoreSlot = slot
+               end
             end
          end
       end

@@ -12,7 +12,9 @@ local function getFarm()
 end
 
 local function updateFarm(slot, crop)
-    farm[slot] = crop
+    if crop ~= nil then
+        farm[slot] = crop
+    end
 end
 
 return {
