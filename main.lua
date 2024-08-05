@@ -229,7 +229,7 @@ end
 local function tickOnce()
    for slot = 1, config.workingFarmArea, 1 do
       local crop = scanner.scan()
-      print("Score = " .. tostring(getCropScore(crop)))
+
       if actions.needCharge() then
          actions.charge()
       end
