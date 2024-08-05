@@ -248,14 +248,14 @@ function transplant(src, dest)
     pulseDown()
 
     -- DESTROY ORIGINAL CROP
-    inventory_controller.equip()
-    robot.select(selectedSlot)
+    swingDown()
     gps.go(config.relayFarmlandPos)
 
-    swingDown()
     if config.keepDrops then
         robot.suckDown()
     end
+    inventory_controller.equip()
+    robot.select(selectedSlot)
 
     gps.resume()
 end
