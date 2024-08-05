@@ -12,7 +12,7 @@ local config = {
     -- Targeted Gr + Ga - Re (23 + 31 - 0 = 54)
     targetedStats = 52,
     -- Maximum Growth for crops on the working farm. Crop with growth > 24 behaves like weeds
-    workingMaxGrowth = 21,
+    workingMaxGrowth = 22,
     -- Maximum Resistance for crops on the working farm
     workingMaxResistance = 5,
     -- Minimum Charge Level

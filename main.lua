@@ -219,7 +219,7 @@ local function checkParent(slot, crop)
    if crop.isCrop and crop.name ~= "air" and crop.name ~= "emptyCrop" then
       if scanner.isWeed(crop) then
          actions.deweed()
-         robot.swingDown()
+         actions.swingDown()
          database.updateFarm(slot, scanner.scan())
          updateDbInfos()
       end

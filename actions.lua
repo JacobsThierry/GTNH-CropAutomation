@@ -27,6 +27,15 @@ local cleanUp
 local scanFarm
 local emergencyStop
 
+local function swingDown()
+    local selectedSlot = robot.select()
+    robot.select(robot.inventorySize() + config.spadeSlot)
+    inventory_controller.equip()
+    robot.swingDown()
+    inventory_controller.equip()
+    robot.select(selectedSlot)
+end
+
 function needCharge()
     return computer.energy() / computer.maxEnergy() < config.needChargeLevel
 end
@@ -197,7 +206,7 @@ function deweed()
 
     local slot = gps.getWorkingSlot()
     if slot % 2 == 1 then
-        robot.swingDown()
+        swingDown()
         local crop = scanner.scan()
         database.updateFarm(slot, crop)
     end
@@ -249,7 +258,7 @@ function transplant(src, dest)
     -- DESTROY ORIGINAL CROP
     inventory_controller.equip()
     gps.go(config.relayFarmlandPos)
-    robot.swingDown()
+    swingDown()
     if config.keepDrops then
         robot.suckDown()
     end
@@ -267,10 +276,10 @@ function cleanUp()
         -- Remove all children and empty parents
         if slot % 2 == 0 or crop.name == "emptyCrop" then
             -- Remove bad parents
-            robot.swingDown()
+            swingDown()
         elseif crop.isWorkable and crop.name ~= "air" then
             if scanner.isWeed(crop) then
-                robot.swingDown()
+                swingDown()
             end
         end
 
@@ -289,12 +298,12 @@ function scanFarm()
 
         if scanner.isWeed(crop) then
             deweed()
-            robot.swingDown()
+            swingDown()
             crop = scanner.scan()
         end
 
         if crop.name == "emptyCrop" then
-            robot.swingDown()
+            swingDown()
             crop = scanner.scan()
         end
 
