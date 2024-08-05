@@ -204,6 +204,9 @@ function deweed()
         robot.suckDown()
     end
 
+    inventory_controller.equip()
+    robot.select(selectedSlot)
+
     local slot = gps.getWorkingSlot()
     if slot % 2 == 1 then
         swingDown()
@@ -211,8 +214,6 @@ function deweed()
         database.updateFarm(slot, crop)
     end
 
-    inventory_controller.equip()
-    robot.select(selectedSlot)
     applyWeedex()
 end
 
