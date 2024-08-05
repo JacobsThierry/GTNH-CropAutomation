@@ -319,6 +319,7 @@ function emergencyStop(errorText)
 end
 
 return {
+    swingDown = swingDown,
     needCharge = needCharge,
     charge = charge,
     fullInventory = fullInventory,
