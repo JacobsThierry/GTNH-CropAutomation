@@ -32,7 +32,7 @@ function needCharge()
 end
 
 function fullyCharged()
-    return computer.energy() / computer.maxEnergy() > 0.99
+    return computer.energy() / computer.maxEnergy() > 0.95
 end
 
 function fullInventory()

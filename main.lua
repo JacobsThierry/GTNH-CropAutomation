@@ -256,6 +256,24 @@ local function tickOnce()
    end
 end
 
+local function getAproximateProgress()
+   local maxProgress = config.workingFarmArea
+   local progress = 0
+
+   local farm = database.getFarm()
+
+   for slot = 1, config.workingFarmArea do
+      local crop = farm[slot]
+      if crop.isWorkable then
+         progress = progress + getCropScore(crop)
+      else
+         maxProgress = maxProgress - 1
+      end
+
+      return progress / maxProgress
+   end
+end
+
 local function main()
    parseArguments()
    checkTools()
@@ -284,9 +302,11 @@ local function main()
    end
 
    print("Target crop : " .. targetCrop)
-
+   print("Staring")
    updateDbInfos()
+
    while not isFinished() do
+      print("Approximate progress = " .. tostring(getAproximateProgress()))
       tickOnce()
       actions.restockAll()
    end
