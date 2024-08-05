@@ -251,6 +251,7 @@ function transplant(src, dest)
     inventory_controller.equip()
     robot.select(selectedSlot)
     gps.go(config.relayFarmlandPos)
+
     swingDown()
     if config.keepDrops then
         robot.suckDown()
