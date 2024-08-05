@@ -308,7 +308,7 @@ local function main()
    updateDbInfos()
 
    while not isFinished() do
-      print("Approximate progress = " .. tostring(getAproximateProgress()))
+      print("Approximate progress = " .. tostring(getAproximateProgress() * 100) .. "%")
       tickOnce()
       actions.restockAll()
    end
