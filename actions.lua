@@ -200,12 +200,11 @@ function deweed()
     robot.select(robot.inventorySize() + config.spadeSlot)
     inventory_controller.equip()
     robot.useDown()
+    inventory_controller.equip()
+    robot.select(selectedSlot)
     if config.keepDrops then
         robot.suckDown()
     end
-
-    inventory_controller.equip()
-    robot.select(selectedSlot)
 
     local slot = gps.getWorkingSlot()
     if slot % 2 == 1 then
