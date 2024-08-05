@@ -205,15 +205,6 @@ function deweed()
     if config.keepDrops then
         robot.suckDown()
     end
-
-    local slot = gps.getWorkingSlot()
-    if slot % 2 == 1 then
-        swingDown()
-        local crop = scanner.scan()
-        database.updateFarm(slot, crop)
-    end
-
-    applyWeedex()
 end
 
 function pulseDown()
