@@ -243,13 +243,6 @@ local function tickOnce()
       gps.go(gps.workingSlotToPos(slot))
       database.updateFarm(slot, crop)
 
-      if scanner.isWeed(crop) then
-         actions.deweed()
-         actions.swingDown()
-         database.updateFarm(slot, scanner.scan())
-         updateDbInfos()
-      end
-
       if isChild then
          checkChild(slot, crop)
       else

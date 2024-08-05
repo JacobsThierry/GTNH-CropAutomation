@@ -213,6 +213,7 @@ function deweed()
 
     inventory_controller.equip()
     robot.select(selectedSlot)
+    applyWeedex()
 end
 
 function pulseDown()
