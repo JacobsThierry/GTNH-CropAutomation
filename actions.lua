@@ -288,6 +288,14 @@ function scanFarm()
         gps.go(gps.workingSlotToPos(slot))
         local crop = scanner.scan()
 
+        if needCharge() then
+            charge()
+        end
+
+        if fullInventory() then
+            dumpInventory()
+        end
+
         if scanner.isWeed(crop) then
             deweed()
             swingDown()
