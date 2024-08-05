@@ -152,7 +152,7 @@ function applyWeedex()
     local selectedSlot = robot.select()
     robot.select(robot.inventorySize() + config.weedexSlot)
 
-    for i = 1, config.weedExcount, 1 do
+    for i = 1, config.weedExcount do
         if robot.count(robot.inventorySize() + config.weedexSlot) == 0 then
             restockWeedex()
         end

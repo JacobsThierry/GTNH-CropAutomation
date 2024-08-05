@@ -241,7 +241,6 @@ local function tickOnce()
       local isChild = slot % 2 == 0
 
       gps.go(gps.workingSlotToPos(slot))
-      local crop = scanner.scan()
       database.updateFarm(slot, crop)
 
       if scanner.isWeed(crop) then
