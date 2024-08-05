@@ -19,6 +19,8 @@ local config = {
     needChargeLevel = 0.25,
     -- Crop target
     targetCrop = nil,
+    -- ammount of weedex applied per crop
+    weedExcound = 2,
     -- =========== DO NOT CHANGE ===========
 
     -- From right to left :
