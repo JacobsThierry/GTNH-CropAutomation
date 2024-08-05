@@ -245,6 +245,7 @@ local function tickOnce()
 
       if scanner.isWeed(crop) then
          actions.deweed()
+         actions.swingDown()
          database.updateFarm(slot, scanner.scan())
          updateDbInfos()
       end
