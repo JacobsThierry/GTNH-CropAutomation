@@ -195,7 +195,7 @@ local function checkChild(slot, crop)
 
          local isChildBetter = cropScore > lowestParentScore
 
-         if not isWorstParentGoodEnough and isChildBetter then
+         if not isWorstParentGoodEnough and isChildBetter then -- better than worst parent
             actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScoreSlot))
             actions.placeCropStick(2)
             actions.applyWeedex()
@@ -204,7 +204,7 @@ local function checkChild(slot, crop)
             updateDbInfos()
          elseif isChildGoodEnough then
             -- keep
-         else
+         else -- not good enough
             actions.deweed()
             actions.placeCropStick()
             actions.applyWeedex()
@@ -216,14 +216,16 @@ local function checkChild(slot, crop)
 end
 
 local function checkParent(slot, crop)
-   if crop.isCrop and crop.name ~= "air" and crop.name ~= "emptyCrop" then
+   if crop.name == "emptyCrop" then
+      actions.swingDown()
+   elseif crop.isCrop and crop.name ~= "air" then
       if scanner.isWeed(crop) then
          actions.deweed()
          actions.swingDown()
-         database.updateFarm(slot, scanner.scan())
-         updateDbInfos()
       end
    end
+   database.updateFarm(slot, scanner.scan())
+   updateDbInfos()
 end
 
 local function tickOnce()
