@@ -286,6 +286,8 @@ local function main()
       actions.dumpInventory()
    end
 
+   print("Scanning farm")
+
    actions.scanFarm()
    actions.restockAll()
 
