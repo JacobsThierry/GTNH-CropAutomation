@@ -47,7 +47,7 @@ local function getCropScore(crop)
    local tierWeight = 0.5
 
    if crop.name == "air" or crop.name == "emptyCrop" or scanner.isWeed(crop) then
-      return -10
+      return 0
    end
 
    local cropStats = math.max(crop.gr + crop.ga - crop.re, 0)
@@ -90,12 +90,6 @@ local function getCropScore(crop)
       local tierDif = math.abs(CROPDATA[string.lower(crop.name)]["tier"] - CROPDATA[string.lower(targetCrop)]["tier"])
       tierDifMultiplier = 1 - math.max(1 - tierDif / 15, 0) -- max tier is 16, max diff should be 15
    end
-
-   print(
-      "cropStatsMult = " ..
-         tostring(cropStatsMultiplier) ..
-            " attributesMultiplier = " .. tostring(attributesMultiplier) .. " tierDifMultiplier = " .. tierDifMultiplier
-   )
 
    return (cropStatsMultiplier * statsWeight + attributesMultiplier * attributesWeight + tierDifMultiplier * tierWeight) /
       (statsWeight + attributesWeight + tierWeight)
