@@ -292,13 +292,7 @@ local function main()
    parseArguments()
    checkTools()
 
-   if actions.needCharge() then
-      actions.charge()
-   end
-
-   if actions.fullInventory() then
-      actions.dumpInventory()
-   end
+   actions.restockAll()
 
    print("Scanning farm")
 
