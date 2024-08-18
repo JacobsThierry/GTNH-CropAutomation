@@ -326,10 +326,13 @@ local function main()
 end
 
 local function t()
-   gps.go(1)
+   gps.go(gps.workingSlotToPos(1))
    local crop = scanner.scan()
 
    print(getCropScore(crop))
+
+   gps.go(config.chargerPos)
+   gps.turnTo(1)
 end
 
 t()
