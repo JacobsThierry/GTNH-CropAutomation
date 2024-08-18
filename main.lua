@@ -125,7 +125,7 @@ local function updateDbInfos()
       local crop = farm[slot]
       if crop ~= nil then
          if crop.isWorkable then
-            if crop.name ~= targetCrop then
+            if string.lower(crop.name) ~= string.lower(targetCrop) then
                isEveryPlantTarget = false
             end
 
@@ -342,6 +342,4 @@ local function t()
    gps.turnTo(1)
 end
 
-t()
-
---main()
+main()
