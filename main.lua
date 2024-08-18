@@ -60,12 +60,13 @@ local function getCropScore(crop)
       tierDifMultiplier = 1
       attributesMultiplier = 1
    else
-      local targetedAttributes = CROPDATA[string.lower(targetCrop)]["attributes"]
-
       if CROPDATA[string.lower(crop.name)] == nil then
          --print("WARNING, NO DATA FOR THE CROP " .. crop.name .. " IN THE DATABASE ")
          return 0
       end
+
+      local targetedAttributes = CROPDATA[string.lower(targetCrop)]["attributes"]
+
       local cropAttributes = CROPDATA[string.lower(crop.name)]["attributes"]
       local commonAttributesCount = 0
 
@@ -330,6 +331,8 @@ local function main()
 end
 
 local function t()
+   parseArguments()
+   targetCrop = config.targetCrop
    gps.go(gps.workingSlotToPos(1))
    local crop = scanner.scan()
 
