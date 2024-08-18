@@ -266,12 +266,11 @@ function cleanUp()
         gps.go(gps.workingSlotToPos(slot))
         local crop = scanner.scan()
 
-        -- Remove all children and empty parents
-        if slot % 2 == 0 or crop.name == "emptyCrop" then
-            -- Remove bad parents
-            swingDown()
-        elseif crop.isWorkable and crop.name ~= "air" then
+        if crop.isWorkable then
             if scanner.isWeed(crop) then
+                deweed()
+                swingDown()
+            elseif slot % 2 == 0 or crop.name == "emptyCrop" then
                 swingDown()
             end
         end
