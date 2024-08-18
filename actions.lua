@@ -283,7 +283,10 @@ function cleanUp()
     restockAll()
 end
 
-function scanFarm()
+function scanFarm(init)
+    if init == nil then
+        init = true
+    end
     for slot = 1, config.workingFarmArea do
         gps.go(gps.workingSlotToPos(slot))
         local crop = scanner.scan()
@@ -302,9 +305,11 @@ function scanFarm()
             crop = scanner.scan()
         end
 
-        if crop.name == "emptyCrop" then
-            swingDown()
-            crop = scanner.scan()
+        if init then
+            if crop.name == "emptyCrop" then
+                swingDown()
+                crop = scanner.scan()
+            end
         end
 
         database.updateFarm(slot, crop)

@@ -165,7 +165,7 @@ local function transplant(src, dest)
 
    if transplantCount > config.maxTransplantPerLoop then
       transplantCount = 0
-      actions.scanFarm()
+      actions.scanFarm(false)
    end
 end
 
