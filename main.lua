@@ -325,4 +325,13 @@ local function main()
    actions.cleanUp()
 end
 
-main()
+local function t()
+   gps.go(1)
+   local crop = scanner.scan()
+
+   print(getCropScore(crop))
+end
+
+t()
+
+--main()
