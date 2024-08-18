@@ -92,9 +92,9 @@ local function getCropScore(crop)
       tierDifMultiplier = 1 - math.max(1 - tierDif / 15, 0) -- max tier is 16, max diff should be 15
    end
 
-   print("cropStatsMultiplier = " .. tostring(cropStatsMultiplier))
-   print("attributesMultiplier = " .. tostring(attributesMultiplier))
-   print("tierDifMultiplier = " .. tostring(tierDifMultiplier))
+   -- print("cropStatsMultiplier = " .. tostring(cropStatsMultiplier))
+   -- print("attributesMultiplier = " .. tostring(attributesMultiplier))
+   -- print("tierDifMultiplier = " .. tostring(tierDifMultiplier))
 
    return (cropStatsMultiplier * statsWeight + attributesMultiplier * attributesWeight + tierDifMultiplier * tierWeight) /
       (statsWeight + attributesWeight + tierWeight)
@@ -164,6 +164,7 @@ local function transplant(src, dest)
    actions.transplant(src, dest)
 
    if transplantCount > config.maxTransplantPerLoop then
+      transplantCount = 0
       actions.scanFarm()
    end
 end
@@ -321,6 +322,7 @@ local function main()
    updateDbInfos()
 
    while not isFinished() do
+      transplantCount = 0
       print("Approximate progress = " .. tostring(getAproximateProgress() * 100) .. "%")
       tickOnce()
       actions.restockAll()
