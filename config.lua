@@ -22,7 +22,7 @@ local config = {
     -- ammount of weedex applied per crop
     weedExcount = 2,
     -- max transplant per field loop before re-checking every crop for weeds
-    maxTransplantPerLoop = 30,
+    maxTransplantPerLoop = 40,
     -- =========== DO NOT CHANGE ===========
 
     -- From right to left :

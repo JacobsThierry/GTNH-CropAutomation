@@ -247,8 +247,6 @@ end
 
 local function tickOnce()
    for slot = 1, config.workingFarmArea, 1 do
-      local crop = scanner.scan()
-
       if actions.needCharge() then
          actions.charge()
       end
@@ -260,6 +258,7 @@ local function tickOnce()
       local isChild = slot % 2 == 0
 
       gps.go(gps.workingSlotToPos(slot))
+      local crop = scanner.scan()
       database.updateFarm(slot, crop)
 
       if isChild then
