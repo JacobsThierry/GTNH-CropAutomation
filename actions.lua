@@ -283,9 +283,9 @@ function cleanUp()
     restockAll()
 end
 
-function scanFarm(init)
-    if init == nil then
-        init = true
+function scanFarm(destroyEmptyStick)
+    if destroyEmptyStick == nil then
+        destroyEmptyStick = true
     end
     for slot = 1, config.workingFarmArea do
         gps.go(gps.workingSlotToPos(slot))
@@ -305,7 +305,7 @@ function scanFarm(init)
             crop = scanner.scan()
         end
 
-        if init then
+        if destroyEmptyStick then
             if crop.name == "emptyCrop" then
                 swingDown()
                 crop = scanner.scan()
