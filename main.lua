@@ -91,6 +91,10 @@ local function getCropScore(crop)
       tierDifMultiplier = 1 - math.max(1 - tierDif / 15, 0) -- max tier is 16, max diff should be 15
    end
 
+   print("cropStatsMultiplier = " .. tostring(cropStatsMultiplier))
+   print("attributesMultiplier = " .. tostring(attributesMultiplier))
+   print("tierDifMultiplier = " .. tostring(tierDifMultiplier))
+
    return (cropStatsMultiplier * statsWeight + attributesMultiplier * attributesWeight + tierDifMultiplier * tierWeight) /
       (statsWeight + attributesWeight + tierWeight)
 end
