@@ -151,6 +151,18 @@ local function updateDbInfos()
    end
 end
 
+local transplantCount = 0
+
+local function transplant(src, dest)
+   transplantCount = transplantCount + 1
+
+   actions.transplant(src, dest)
+
+   if transplantCount > config.maxTransplantPerLoop then
+      actions.scanFarm()
+   end
+end
+
 local function isFinished()
    updateDbInfos()
    return isEveryPlantTarget and isEveryPlantGoodEnough
@@ -196,7 +208,7 @@ local function checkChild(slot, crop)
          local isChildBetter = cropScore > lowestParentScore
 
          if not isWorstParentGoodEnough and isChildBetter then -- better than worst parent
-            actions.transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScoreSlot))
+            transplant(gps.workingSlotToPos(slot), gps.workingSlotToPos(lowestParentScoreSlot))
             actions.placeCropStick(2)
             actions.applyWeedex()
             database.updateFarm(slot, scanner.scan())
@@ -309,6 +321,8 @@ local function main()
       tickOnce()
       actions.restockAll()
    end
+
+   actions.cleanUp()
 end
 
 main()
