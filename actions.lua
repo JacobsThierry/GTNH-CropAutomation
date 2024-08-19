@@ -261,25 +261,12 @@ function transplant(src, dest)
 end
 
 function cleanUp()
-    for slot = 1, config.workingFarmArea, 1 do
-        -- Scan
-        gps.go(gps.workingSlotToPos(slot))
-        local crop = scanner.scan()
+    gps.save()
 
-        if crop.isWorkable then
-            if scanner.isWeed(crop) then
-                deweed()
-                swingDown()
-            elseif crop.name == "emptyCrop" then
-                swingDown()
-            end
-        end
+    scanFarm()
 
-        -- Pickup
-        if config.keepDrops then
-            robot.suckDown()
-        end
-    end
+    gps.resume()
+
     restockAll()
 end
 
