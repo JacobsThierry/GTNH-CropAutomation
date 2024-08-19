@@ -306,6 +306,7 @@ end
 function emergencyStop(errorText)
     cleanUp()
     gps.go(config.chargerPos)
+    gps.turnTo(1)
     print(errorText)
     os.exit(0)
 end
