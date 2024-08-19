@@ -270,7 +270,7 @@ function cleanUp()
             if scanner.isWeed(crop) then
                 deweed()
                 swingDown()
-            elseif slot % 2 == 0 or crop.name == "emptyCrop" then
+            elseif crop.name == "emptyCrop" then
                 swingDown()
             end
         end
