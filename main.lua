@@ -331,10 +331,14 @@ end
 local function t()
    parseArguments()
    targetCrop = config.targetCrop
-   gps.go(gps.workingSlotToPos(1))
-   local crop = scanner.scan()
 
-   print(getCropScore(crop))
+   for slot = 1, config.workingFarmArea do
+      gps.go(gps.workingSlotToPos(slot))
+      local crop = scanner.scan()
+      print("Slot = " .. tostring(slot))
+      print(scanner.cropToString(crop))
+      print("Crop score = " .. tostring(getCropScore(crop)))
+   end
 
    gps.go(config.chargerPos)
    gps.turnTo(1)

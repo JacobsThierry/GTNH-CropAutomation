@@ -5,6 +5,19 @@ local sides = require("sides")
 local config = require("config")
 local geolyzer = component.geolyzer
 
+local function cropToString(crop)
+    local str = ""
+
+    str = str .. "Name = " .. crop.name .. "\n"
+    str = str .. "isWorkable = " .. tostring(crop.isWorkable) .. "\n"
+    str = str .. "isCrop = " .. tostring(crop.isCrop) .. "\n"
+    str = str .. "gr = " .. tostring(crop.gr) .. "\n"
+    str = str .. "ga = " .. tostring(crop.ga) .. "\n"
+    str = str .. "re = " .. tostring(crop.re) .. "\n"
+
+    return str
+end
+
 local function scan()
     local rawResult = geolyzer.analyze(sides.down)
 
@@ -73,6 +86,7 @@ local function getScore(crop)
 end
 
 return {
+    cropToString = cropToString,
     scan = scan,
     getScore = getScore,
     isWeed = isWeed
