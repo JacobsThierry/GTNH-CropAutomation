@@ -172,6 +172,10 @@ function applyWeedex()
         end
     end
 
+    if robot.count(robot.inventorySize() + config.weedexSlot) == 0 then
+        restockWeedex()
+    end
+
     robot.select(selectedSlot)
 end
 
