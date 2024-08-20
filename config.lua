@@ -8,7 +8,7 @@ local config = {
     -- Minimum Gr + Ga - Re for the working farm during autoStat (21 + 31 - 0 = 52)
     childThreshold = 50,
     -- Minimum Gr + Ga - Re for the working farm during autoStat (21 + 31 - 0 = 52)
-    parentThreshold = 51,
+    parentThreshold = 52,
     -- Targeted Gr + Ga - Re (21 + 31 - 0 = 52)
     targetedStats = 52,
     -- Maximum Growth for crops on the working farm. Crop with growth > 24 behaves like weeds
