@@ -6,9 +6,9 @@ local config = {
     -- Pickup any and all drops (don't change)
     keepDrops = true,
     -- Minimum Gr + Ga - Re for the working farm during autoStat (21 + 31 - 0 = 52)
-    childThreshold = 51,
+    childThreshold = 50,
     -- Minimum Gr + Ga - Re for the working farm during autoStat (21 + 31 - 0 = 52)
-    parentThreshold = 53,
+    parentThreshold = 51,
     -- Targeted Gr + Ga - Re (21 + 31 - 0 = 52)
     targetedStats = 52,
     -- Maximum Growth for crops on the working farm. Crop with growth > 24 behaves like weeds
