@@ -152,6 +152,8 @@ local function updateDbInfos()
                end
             end
          end
+      else
+         isEveryPlantTarget = false
       end
    end
 end
@@ -322,6 +324,7 @@ local function main()
       actions.restockAll()
    end
 
+   print("Done, cleanning up")
    actions.cleanUp()
 end
 
@@ -337,4 +340,6 @@ local function t()
    gps.turnTo(1)
 end
 
-main()
+t()
+
+--main()
