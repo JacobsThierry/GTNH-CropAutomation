@@ -285,9 +285,8 @@ local function getAproximateProgress()
       else
          maxProgress = maxProgress - 1
       end
-
-      return progress / maxProgress
    end
+   return progress / maxProgress
 end
 
 local function main()
@@ -328,7 +327,7 @@ local function main()
    actions.cleanUp()
 end
 
-local function t()
+local function scanAndPrintField()
    parseArguments()
    targetCrop = config.targetCrop
 
@@ -344,6 +343,6 @@ local function t()
    gps.turnTo(1)
 end
 
-t()
+--scanAndPrintField()
 
---main()
+main()
