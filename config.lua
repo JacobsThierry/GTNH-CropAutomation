@@ -5,24 +5,24 @@ local config = {
     workingFarmSize = 16,
     -- Pickup any and all drops (don't change)
     keepDrops = true,
-    -- Minimum Gr + Ga - Re for the working farm during autoStat (21 + 31 - 0 = 52)
+    -- Minimum Gr + Ga - Re for the childs crops (21 + 31 - 0 = 52)
     childThreshold = 50,
-    -- Minimum Gr + Ga - Re for the working farm during autoStat (21 + 31 - 0 = 52)
+    -- Minimum Gr + Ga - Re for theparent crops (21 + 31 - 0 = 52)
     parentThreshold = 52,
     -- Targeted Gr + Ga - Re (21 + 31 - 0 = 52)
     targetedStats = 52,
     -- Maximum Growth for crops on the working farm. Crop with growth > 24 behaves like weeds
     workingMaxGrowth = 21,
     -- Maximum Resistance for crops on the working farm
-    workingMaxResistance = 5,
+    workingMaxResistance = 3,
     -- Minimum Charge Level
     needChargeLevel = 0.25,
     -- Crop target
     targetCrop = nil,
     -- ammount of weedex applied per crop
-    weedExcount = 2,
+    weedExcount = 1,
     -- max transplant per field loop before re-checking every crop for weeds
-    maxTransplantPerLoop = 20,
+    maxTransplantPerLoop = 40,
     -- =========== DO NOT CHANGE ===========
 
     -- From right to left :
