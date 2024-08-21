@@ -2,7 +2,7 @@ local config = {
     -- NOTE: EACH CONFIG SHOULD END WITH A COMMA
 
     -- Side Length of Working Farm
-    workingFarmSize = 16,
+    workingFarmSize = 15,
     -- Pickup any and all drops (don't change)
     keepDrops = true,
     -- Minimum Gr + Ga - Re for the childs crops (21 + 31 - 0 = 52)
